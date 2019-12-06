@@ -1,0 +1,105 @@
+<div class="title">
+    <h1>Car rental Application </h1>
+</div>
+<div class="main">
+    <div class="add">
+            <h3>Create a new car</h3>
+        <table>
+            <tbody>
+            <tr>
+                <td> Car brand : </td>
+            <td><input Type="text" [(ngModel)]="car.brand"></td>
+            </tr>
+            <tr>
+                <td>Plate number : </td>
+                <td><input Type="text" [(ngModel)]="car.plateNumber"></td>
+            </tr>
+            <tr>
+                <td>Number Of Seat : </td>
+                <td><input Type="text" [(ngModel)]="car.nomberOfSeats"></td>
+            </tr>
+            <tr>
+                <td>Price : </td>
+                <td><input Type="text" [(ngModel)]="car.price"></td>
+            </tr>
+            </tbody>
+            </table>
+            <br>
+            <button (click)="createCar(car)">Create Car </button>
+        </div>
+        <br>
+        <br>
+        
+    <div class="plateNumber">
+        <h3>Get car by plate number</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Plate number : </td>
+                    <td><input Type="text" [(ngModel)]="carPlate"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="findByPlate()">Search car</button>
+        <div *ngIf=response>
+            <br>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Brand of the  car : </td>
+                        <td>{{response.brand}}</td>
+                    </tr>
+                    <tr>
+                        <td>Plate number : </td>
+                        <td>{{response.plateNumber}}</td>
+                    </tr>
+                    <tr>
+                        <td>Number of seats : </td>
+                        <td>{{response.nomberOfSeats}}</td>
+                    </tr>
+                    <tr>
+                        <td>Price of the car : </td>
+                        <td>{{response.price}}</td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <button (click)="rent()">Rent it ! </button>
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    <div class="all">
+        <h3>Get all cars :</h3>
+        <div *ngFor= "let car of cars">
+            <table>
+                <tbody>
+                    <ul>
+                        <li>
+                            <tr>
+                                <td>Brand of the  car : </td>
+                                <td>{{car.brand}}</td>
+                            </tr>
+                            <tr>
+                                <td>Plate number : </td>
+                                <td>{{car.plateNumber}}</td>
+                            </tr>
+                            <tr>
+                                <td>Number of seats : </td>
+                                <td>{{car.nomberOfSeats}}</td>
+                            </tr>
+                            <tr>
+                                <td>Price of the car : </td>
+                                <td>{{car.price}}</td>
+                            </tr>
+                        </li>
+                    </ul>
+                </tbody>
+            </table><br>
+            </div>
+        <button (click)="ngOnInit()">Find Cars</button>
+    
+    </div>   
+</div>
+
+
